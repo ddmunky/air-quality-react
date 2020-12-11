@@ -17,7 +17,10 @@ const CardBody = ({ loading, aqi }) => {
           ></span>
         </div>
         <span className="progress-text progress-text--important">
-          <span id="aqi">{aqi}</span>/500
+          <span id="aqi" style={{ color: `${color}` }}>
+            {aqi}
+          </span>
+          /500
         </span>
       </div>
       <div className="card__body--description">

@@ -16,6 +16,7 @@
   -moz-backdrop-filter: blur(20px);
 
   @media (min-width: 300px) and (max-width: 700px) {
+    top: 4rem;
     height: 80%;
     width: 90%;
     box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.5);
@@ -188,8 +189,9 @@
 }
 
 #aqi {
-  color: rgba(19, 163, 0, 0.836);
   opacity: 1;
+  text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.5);
+  font-weight: 500;
 }
 
 .animation {

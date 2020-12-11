@@ -7,7 +7,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Air quality Index`,
+    title: `Air Quality Widget `,
     description: `AirQuality is a simple widget collecting data about your current location air quality index.`,
     author: `@ddmunky`,
   },

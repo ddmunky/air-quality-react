@@ -9,6 +9,7 @@ const API_URL = process.env.GATSBY_API_URL
 const Card = () => {
   const [airQuality, setAirQuality] = useState(null)
   const [city, setCity] = useState("")
+  const [weather, setWeather] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -28,6 +29,12 @@ const Card = () => {
         )
         const responseData = await response.json()
         setAirQuality(responseData.data.current.pollution.aqius)
+        setWeather({
+          icon: responseData.data.current.weather.ic,
+          temp: responseData.data.current.weather.tp,
+          humidity: responseData.data.current.weather.hu,
+          wind: responseData.data.current.weather.ws,
+        })
         setCity(responseData.data.city)
         setLoading(false)
       }
@@ -40,9 +47,14 @@ const Card = () => {
 
   return (
     <div className="card">
-      <CardHeader loading={loading} location={city} aqi={airQuality} />
+      <CardHeader
+        loading={loading}
+        location={city}
+        aqi={airQuality}
+        icon={weather.icon}
+      />
       <CardBody loading={loading} aqi={airQuality} />
-      <CardFooter />
+      <CardFooter weather={weather} />
     </div>
   )
 }

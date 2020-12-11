@@ -1,6 +1,6 @@
 import React from "react"
 
-const CardFooter = () => {
+const CardFooter = ({ weather }) => {
   return (
     <div className="card__footer">
       <div className="weather-details">
@@ -8,7 +8,7 @@ const CardFooter = () => {
           <i className="wi wi-thermometer"></i>
         </span>
         <div className="icon--text">
-          Temperature: <span id="temp"></span>º
+          Temperature: <span id="temp">{weather.temp}</span>º
         </div>
       </div>
       <div className="weather-details">
@@ -16,7 +16,7 @@ const CardFooter = () => {
           <i className="wi wi-humidity"></i>
         </span>
         <div className="icon--text">
-          Humidity: <span id="humidity"></span>%
+          Humidity: <span id="humidity">{weather.humidity}</span>%
         </div>
       </div>
       <div className="weather-details">
@@ -24,7 +24,7 @@ const CardFooter = () => {
           <i className="wi wi-wind-direction"></i>
         </span>
         <div className="icon--text">
-          Wind: <span id="wind"></span>m/s
+          Wind: <span id="wind">{weather.wind}</span>m/s
         </div>
       </div>
     </div>
