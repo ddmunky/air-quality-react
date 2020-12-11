@@ -17,13 +17,16 @@ const Card = () => {
         const requestOptions = {
           method: "GET",
           redirect: "follow",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
         }
         const response = await fetch(
           `${API_URL}/nearest_city?key=${API_KEY}`,
           requestOptions
         )
         const responseData = await response.json()
-        console.log(responseData)
         setAirQuality(responseData.data.current.pollution.aqius)
         setCity(responseData.data.city)
         setLoading(false)
