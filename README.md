@@ -1,5 +1,4 @@
 <h1 align="center">Welcome to Air Quality Index ☀️ 🌦 🌩 🌬</h1>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ddb5f5e3-ce12-4015-9488-8961c1852d61/deploy-status)](https://app.netlify.com/sites/airqualityindex/deploys)
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/gatsbyjs/gatsby-starter-default#readme" target="_blank">
@@ -60,4 +59,4 @@ This project is [0BSD](https://github.com/gatsbyjs/gatsby-starter-default/blob/m
 
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ddb5f5e3-ce12-4015-9488-8961c1852d61/deploy-status)](https://app.netlify.com/sites/airqualityindex/deploys)
