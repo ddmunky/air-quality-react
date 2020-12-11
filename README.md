@@ -39,11 +39,10 @@ npm run test
 
 ## Author
 
-👤 **Mathieu Derval @ddmunky**
+👤 **Mathieu Derval**
 
 - Website: https://ddmunky.com/
 - Twitter: [@ddmunky](https://twitter.com/ddmunky)
-- Github: [@ddmunky](https://github.com/ddmunky)
 
 ## 🤝 Contributing
 
