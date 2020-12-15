@@ -18,6 +18,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false)
   const { updateCityCoords } = useContext(UserCity)
   const textInput = useRef(null)
+  const cors = "https://ddmunky-cors-anywhere.herokuapp.com/"
 
   const handleSearch = e => {
     setInput(e.target.value)
@@ -38,7 +39,7 @@ const Search = () => {
     const gpsData = async () => {
       const response = await (
         await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(
+          `${cors}https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(
             city
           )}&region=${
             country.lenght > 3 ? getCode(country) : country
@@ -58,7 +59,7 @@ const Search = () => {
     const fetchData = async () => {
       const response = await (
         await fetch(
-          `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&language=en&key=${API_KEY_PLACES}`
+          `${cors}https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&language=en&key=${API_KEY_PLACES}`
         ).catch(handleError)
       ).json()
       // check for error
