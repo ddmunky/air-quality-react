@@ -8,7 +8,7 @@ const CardFooter = ({ weather }) => {
           <i className="wi wi-thermometer"></i>
         </span>
         <div className="icon--text">
-          Temperature: <span id="temp">{weather.temp}</span>º
+          Temperature: <span id="temp">{weather && weather.temp}</span>º
         </div>
       </div>
       <div className="weather-details">
@@ -16,7 +16,7 @@ const CardFooter = ({ weather }) => {
           <i className="wi wi-humidity"></i>
         </span>
         <div className="icon--text">
-          Humidity: <span id="humidity">{weather.humidity}</span>%
+          Humidity: <span id="humidity">{weather && weather.humidity}</span>%
         </div>
       </div>
       <div className="weather-details">
@@ -24,7 +24,7 @@ const CardFooter = ({ weather }) => {
           <i className="wi wi-wind-direction"></i>
         </span>
         <div className="icon--text">
-          Wind: <span id="wind">{weather.wind}</span>m/s
+          Wind: <span id="wind">{weather && weather.wind}</span>m/s
         </div>
       </div>
     </div>

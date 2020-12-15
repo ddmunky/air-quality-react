@@ -1,0 +1,102 @@
+.search__icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+  @media (min-width: 300px) and (max-width: 1100px) {
+    color: rgba(73, 73, 73, 0.5);
+    z-index: 400;
+    right: 8%;
+  }
+
+  .search-white {
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+.search__field {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translate(-50%, -15rem);
+  transition: 0.3s ease-in-out;
+  width: 90%;
+  z-index: 300;
+  box-shadow: 0 0rem 0.8rem rgba(0, 0, 0, 0.5);
+
+  &-active {
+    transform: translate(-50%, 0.5rem);
+  }
+
+  input {
+    border: none;
+    outline: none;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    width: 100%;
+    font-family: inherit;
+    font-size: 2rem;
+    color: rgb(58, 58, 58);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    -moz-backdrop-filter: blur(20px);
+    @supports not (backdrop-filter: blur(20px)) {
+      background-color: rgba(223, 223, 223, 0.8);
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 1.5rem;
+    right: 2%;
+  }
+
+  @media (min-width: 300px) and (max-width: 700px) {
+    width: 90%;
+  }
+}
+
+.autocomplete {
+  position: absolute;
+  top: 6.5rem;
+  left: 50%;
+  transform: translate(-50%, -50rem);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  z-index: 500;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  -moz-backdrop-filter: blur(20px);
+
+  @supports not (backdrop-filter: blur(20px)) {
+    background-color: rgba(223, 223, 223, 0.8);
+  }
+
+  ul {
+    list-style: none;
+  }
+  li {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    color: rgb(73, 73, 73);
+    border-bottom: 1px solid rgba(201, 201, 201, 0.5);
+
+    &:hover {
+      background-color: rgba(230, 230, 230, 0.7);
+    }
+  }
+
+  &-active {
+    transform: translate(-50%, 0rem);
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+  }
+}

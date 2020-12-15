@@ -1,4 +1,8 @@
 const AIR_QUALITY = {
+  error: {
+    info: `Sorry, information couldn't be retrieved, try again later`,
+    color: "rgba(131, 131, 131, 0.836)",
+  },
   good: {
     info:
       "Air quality is satisfactory, and air pollution poses little or no risk.",
@@ -35,7 +39,7 @@ const aqiWidgetInfo = aqi => {
   let color = ""
 
   switch (true) {
-    case aqi <= 50:
+    case aqi > 0 && aqi <= 50:
       message = AIR_QUALITY.good.info
       color = AIR_QUALITY.good.color
       break
@@ -60,7 +64,8 @@ const aqiWidgetInfo = aqi => {
       color = AIR_QUALITY.hazardous.color
       break
     default:
-      message = `Sorry, information couldn't be retrieved, try again later`
+      message = AIR_QUALITY.error.info
+      color = AIR_QUALITY.error.color
       break
   }
 

@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  margin: 3rem;
+  margin-top: 3rem;
   overflow: hidden;
   width: 70rem;
   height: 30%;
@@ -14,9 +14,12 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   -moz-backdrop-filter: blur(20px);
+  @supports not (backdrop-filter: blur(20px)) {
+    background-color: rgba(223, 223, 223, 0.8);
+  }
 
   @media (min-width: 300px) and (max-width: 700px) {
-    top: 4rem;
+    top: 6rem;
     height: 80%;
     width: 90%;
     box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.5);
@@ -89,7 +92,7 @@
 
 .card__body {
   height: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 3rem;
   font-size: 1.4rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -121,7 +124,7 @@
   display: flex;
   justify-content: space-around;
   opacity: 0.7;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .icon--detail {

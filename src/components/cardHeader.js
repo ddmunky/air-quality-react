@@ -17,7 +17,7 @@ const CardHeader = ({ loading, location, aqi, icon }) => {
       </div>
       <div className="card__icon--weather">
         <span className="icon">
-          {loading ? (
+          {loading || icon.length === 0 ? (
             <i className="wi wi-cloud-refresh"></i>
           ) : (
             <i className={`wi ${iconsWeather["_" + icon]}`}></i>

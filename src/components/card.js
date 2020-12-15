@@ -1,50 +1,93 @@
-import React, { useEffect } from "react"
-import { useState } from "react"
+import React, { useEffect, useState, useContext, useCallback } from "react"
+import { UserCity } from "../pages/index"
+
 import CardBody from "./cardBody"
 import CardFooter from "./cardFooter"
 import CardHeader from "./cardHeader"
+
 const API_KEY = process.env.GATSBY_API_KEY
 const API_URL = process.env.GATSBY_API_URL
 
 const Card = () => {
   const [airQuality, setAirQuality] = useState(null)
   const [city, setCity] = useState("")
-  const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState({
+    icon: "test",
+    temp: "test",
+    humidity: "test",
+    wind: "test",
+  })
   const [loading, setLoading] = useState(true)
+  const { userCityCoords } = useContext(UserCity)
 
-  useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const requestOptions = {
-          method: "GET",
-          redirect: "follow",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-        const response = await fetch(
-          `${API_URL}/nearest_city?key=${API_KEY}`,
-          requestOptions
-        )
-        const responseData = await response.json()
-        setAirQuality(responseData.data.current.pollution.aqius)
-        setWeather({
-          icon: responseData.data.current.weather.ic,
-          temp: responseData.data.current.weather.tp,
-          humidity: responseData.data.current.weather.hu,
-          wind: responseData.data.current.weather.ws,
+  let endpoint = `nearest_city?`
+  if (userCityCoords !== undefined) {
+    endpoint = `nearest_city?lat=${userCityCoords.lat}&lon=${userCityCoords.lng}&`
+  }
+
+  const getCityinfo = useCallback(() => {
+    setLoading(true)
+
+    const handleError = function (err) {
+      console.warn(err)
+      return new Response(
+        JSON.stringify({
+          code: 400,
+          message: "Oops network Error",
         })
-        setCity(responseData.data.city)
+      )
+    }
+
+    const fetchData = async () => {
+      // fetch options for AQI API
+      const requestOptions = {
+        method: "GET",
+        redirect: "follow",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+      // calling endpoint
+      const response = await (
+        await fetch(
+          `${API_URL}/${endpoint}key=${API_KEY}`,
+          requestOptions
+        ).catch(handleError)
+      ).json()
+      // check for error
+      if (response.code && response.code === 400) {
+        setAirQuality("")
+        setWeather({
+          icon: "",
+          temp: "",
+          humidity: "",
+          wind: "",
+        })
+        setCity("Unavailable - try again later")
+        setLoading(false)
+        return
+      } else {
+        // update states with results from API
+        setAirQuality(response.data.current.pollution.aqius)
+        setWeather({
+          icon: response.data.current.weather.ic,
+          temp: response.data.current.weather.tp,
+          humidity: response.data.current.weather.hu,
+          wind: response.data.current.weather.ws,
+        })
+        setCity(response.data.city)
         setLoading(false)
       }
-
-      fetchData()
-    } catch (error) {
-      console.log("Oops: ", error)
     }
-  }, [])
+    fetchData()
+  }, [endpoint])
 
+  useEffect(() => {
+    getCityinfo()
+  }, [getCityinfo])
+
+  // jsx part
   return (
     <div className="card">
       <CardHeader
