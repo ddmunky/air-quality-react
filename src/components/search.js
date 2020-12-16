@@ -56,6 +56,7 @@ const Search = () => {
   }, [city, country])
 
   const fetchPlaces = useCallback(() => {
+    setLoading(true)
     const fetchData = async () => {
       const response = await (
         await fetch(

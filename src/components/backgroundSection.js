@@ -22,7 +22,7 @@ const BackgroundSection = ({ className }) => {
 
   return (
     <BackgroundImage
-      Tag="section"
+      Tag="div"
       className={className}
       fluid={imageData}
     ></BackgroundImage>
@@ -33,8 +33,9 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100vw;
   height: 100%;
   background-position: center center;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-size: cover;
+  position: fixed !important;
 `
 
 export default StyledBackgroundSection

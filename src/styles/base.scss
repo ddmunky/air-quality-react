@@ -14,15 +14,15 @@ $font-primary: "Roboto", sans-serif;
   box-sizing: inherit;
 }
 
-html {
+html,
+body {
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
-}
-
-body {
+  min-height: 100%;
   font-family: $font-primary;
   color: $primary-color;
-  background-color: $secondary-color;
+  // background-color: $secondary-color;
+  background-color: lightcoral;
   font-weight: 300;
   line-height: 1.6;
 }
@@ -47,7 +47,7 @@ header {
   justify-content: center;
   align-items: center;
 
-  @media (min-width: 300px) and (max-width: 700px) {
-    align-items: flex-start;
-  }
+  // @media (min-width: 300px) and (max-width: 700px) {
+  //   align-items: flex-start;
+  // }
 }
