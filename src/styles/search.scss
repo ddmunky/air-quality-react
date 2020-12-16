@@ -47,7 +47,7 @@
     -webkit-backdrop-filter: blur(20px);
     -moz-backdrop-filter: blur(20px);
     @supports not (backdrop-filter: blur(20px)) {
-      background-color: rgba(223, 223, 223, 0.8);
+      background-color: rgba(223, 223, 223, 0.9);
     }
   }
 
@@ -71,23 +71,26 @@
   opacity: 0;
   z-index: 500;
   width: 90%;
-  background-color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  background-color: rgba(223, 223, 223, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   -moz-backdrop-filter: blur(20px);
 
   @supports not (backdrop-filter: blur(20px)) {
-    background-color: rgba(223, 223, 223, 0.8);
+    background-color: rgba(223, 223, 223, 1);
   }
 
   ul {
     list-style: none;
   }
   li {
+    position: relative;
     padding: 1rem 3rem;
     font-size: 1.5rem;
     color: rgb(73, 73, 73);
     border-bottom: 1px solid rgba(201, 201, 201, 0.5);
+    backdrop-filter: blur(20px);
 
     &:hover {
       background-color: rgba(230, 230, 230, 0.7);
