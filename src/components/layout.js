@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <StyledBackgroundSection />
-
       <div className="container">{children}</div>
     </>
   )
