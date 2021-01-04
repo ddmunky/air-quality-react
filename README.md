@@ -34,7 +34,6 @@ gatsby develop
 
 ## 📝 License
 
-Copyright © 2021 [Mathieu Derval @ddmunky](https://github.com/ddmunky).<br />
 This project is [0BSD](https://github.com/gatsbyjs/gatsby-starter-default/blob/master/LICENSE) licensed.
 
 ---
